@@ -143,9 +143,17 @@ Los pipelines internos (`build_public.py`, `validar_public.py`) **no** forman pa
 
 ## Licencia
 
-MIT — ver [`LICENSE`](LICENSE).
+Este proyecto usa una **licencia dual**:
 
-> **Nota sobre los datos:** el dataset k-anonimizado incluido en este repositorio se publica con fines demostrativos. Queda prohibido cualquier intento de re-identificar individuos o de vincular estos agregados con el cliente original.
+- **Código** (`src/`, `.streamlit/`, `requirements.txt`): [Licencia MIT](LICENSE).
+- **Datos** (`data/public/`): [Acuerdo de Uso de Datos](LICENSE) — no comercial,
+  sin re-identificación, requiere atribución.
+- **Documentación** (`docs/`, READMEs): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+> ⚠️ Los datasets k-anonimizados se publican con fines demostrativos.
+> Cualquier intento de re-identificar individuos o vincular los datos con
+> una organización específica está expresamente prohibido. Consulta el
+> archivo [LICENSE](LICENSE) para los términos completos.
 
 ---
 

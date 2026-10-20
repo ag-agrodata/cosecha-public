@@ -143,9 +143,17 @@ The internal pipelines (`build_public.py`, `validar_public.py`) are **not** part
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE).
+This project uses a **dual license**:
 
-> **Data note:** The k-anonymized dataset bundled in this repository is released for demonstration purposes. Any attempt to re-identify individuals or to link these aggregates back to the original client is prohibited.
+- **Code** (`src/`, `.streamlit/`, `requirements.txt`): [MIT License](LICENSE).
+- **Data** (`data/public/`): [Data Use Agreement](LICENSE) — non-commercial,
+  no re-identification, attribution required.
+- **Documentation** (`docs/`, READMEs): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+> ⚠️ The k-anonymized datasets are released for demonstration purposes.
+> Any attempt to re-identify individuals or link the data to a specific
+> organization is expressly prohibited. See the [LICENSE](LICENSE) file
+> for full terms.
 
 ---
 
