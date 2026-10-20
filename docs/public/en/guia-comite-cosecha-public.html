@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Committee Guide · Harvest Operations</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #1B4332; --dorado: #D8B25C; --terracota: #BC6C25;
+    --hueso: #FAFAF8; --azul: #2C5F7C; --tinta: #212529;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: var(--tinta); background: var(--hueso);
+         max-width: 920px; margin: 40px auto; padding: 0 32px; line-height: 1.65; }
+  h1, h2, h3 { font-family: 'Sora', sans-serif; color: var(--verde); }
+  h1 { border-bottom: 3px solid var(--dorado); padding-bottom: 16px; margin-bottom: 8px; }
+  h2 { margin-top: 48px; border-left: 5px solid var(--dorado); padding-left: 16px; }
+  h3 { color: var(--azul); }
+  .subtitle { color: #555; font-style: italic; margin-bottom: 32px; }
+  .pubnote { background:#1B4332; color:#FAFAF8; border-left:6px solid #D8B25C; padding:10px 18px;
+             border-radius:8px; margin-bottom:16px; font-size:.9rem; }
+  .card { background:#fff; border:1px solid rgba(27,67,50,.12); border-left:4px solid var(--dorado);
+          border-radius:10px; padding:18px 22px; margin:20px 0; box-shadow:0 2px 6px rgba(0,0,0,.03); }
+  .paso { background:#fff; border-left:5px solid var(--verde); padding:16px 20px; margin:16px 0; border-radius:6px; }
+  .paso .n { display:inline-block; background:var(--verde); color:#fff; width:28px; height:28px;
+             border-radius:50%; text-align:center; font-weight:700; margin-right:12px; font-family:'Sora',sans-serif; }
+  .sem { display:inline-block; padding:2px 10px; border-radius:12px; font-weight:600; font-size:.9em; margin-right:4px; }
+  .sem-v { background:#D1FAE5; color:#065F46; } .sem-a { background:#FEF3C7; color:#92400E; }
+  .sem-r { background:#FEE2E2; color:#991B1B; }
+  table { width:100%; border-collapse:collapse; margin:16px 0; font-size:.95em; }
+  th { background:var(--verde); color:#fff; padding:10px 12px; text-align:left; font-family:'Sora',sans-serif; font-weight:600; }
+  td { padding:10px 12px; border-bottom:1px solid #e5e5e5; }
+  tr:nth-child(even) td { background:#fafafa; }
+  .alert { padding:14px 18px; border-radius:8px; margin:16px 0; border-left:4px solid; }
+  .alert-ok { background:#ECFDF5; border-color:#10B981; }
+  .alert-warn { background:#FFFBEB; border-color:#F59E0B; }
+  .kpi { display:inline-block; background:#fff; border:1px solid rgba(27,67,50,.15); border-radius:10px;
+         padding:10px 16px; margin:4px; min-width:200px; }
+  .kpi b { color:var(--verde); font-family:'Sora',sans-serif; }
+  code { background:#f3f4f6; padding:2px 6px; border-radius:4px; font-size:.9em; color:var(--azul); }
+  .banner { background:var(--verde); color:#fff; border-left:6px solid var(--dorado); padding:18px 24px;
+            border-radius:10px; margin:24px 0; font-family:'Sora',sans-serif; }
+  .banner .big { font-size:1.3em; font-weight:800; }
+  footer { margin-top:60px; padding-top:24px; border-top:2px solid var(--dorado); color:#777;
+           font-size:.85em; text-align:center; }
+</style>
+</head>
+<body>
+
+<div class="pubnote">Public anonymized version · no client identifiers · Prepared by Andrés Gómez · Agri-industrial Data Analyst.</div>
+
+<h1>Committee Guide · Harvest Operations</h1>
+<p class="subtitle">Companion for the Thursday 9:00 am planning meeting · Prepared by Andrés Gómez · Agri-industrial Data Analyst</p>
+
+<div class="banner">
+  <div class="big">🎯 Purpose of the dashboard</div>
+  To accompany the <strong>weekly planning meeting</strong> with a prescriptive planner:
+  how many kilograms to harvest, how many people are missing, and how to close the gap
+  (overtime, hiring, or redistribution).
+</div>
+
+<h2>1 · Five-second overview</h2>
+<div class="card">
+<strong>What it is:</strong> an operational dashboard that turns the production forecast into
+work hours, headcount shortfalls and cost — and measures forecast accuracy week after week.<br><br>
+<strong>What it is NOT:</strong><br>
+• A worker-surveillance system (data is aggregated and anonymized).<br>
+• A replacement for the field supervisor's judgment.<br>
+• A commercial or sales dashboard (separate project).
+</div>
+
+<h2>2 · The Thursday 9:00 am meeting, step by step</h2>
+
+<div class="paso"><span class="n">1</span><strong>Load the ERP CSV</strong><br>
+Upload the file with the harvest of the week that is closing (through Wednesday). This is the <em>current state</em>.</div>
+
+<div class="paso"><span class="n">2</span><strong>Choose the mode</strong><br>
+<strong>Current week</strong> = plan this week (rare). <strong>Week to project</strong> = next week (the normal case).</div>
+
+<div class="paso"><span class="n">3</span><strong>Review the preloaded forecast</strong><br>
+The <code>✏️ kg PROJECTED</code> column starts with the forecast of the winning method per variety
+(selected automatically by backtest). Use the <em>4-week history</em> column to spot outliers.</div>
+
+<div class="paso"><span class="n">4</span><strong>Adjust the kilograms</strong><br>
+Edit <code>✏️ kg PROJECTED</code> with your field criteria. The <strong>Variation</strong> column paints
+<span class="sem sem-v">🟢 +</span> when you raise it and <span class="sem sem-r">🔴 −</span> when you lower it.
+The <strong>Model dev.</strong> column shows how far you move from the automatic forecast.</div>
+
+<div class="paso"><span class="n">5</span><strong>Read the suggestions (Section 4)</strong><br>
+The engine computes required hours per farm and compares them with available hours. It returns:</div>
+<ul>
+  <li><span class="sem sem-r">🟥 HIRE</span> — people are missing even with overtime at the legal cap.</li>
+  <li><span class="sem sem-a">🟧 OVERTIME</span> — hours are needed within the legal cap.</li>
+  <li><span class="sem sem-a">🟨 REDISTRIBUTE</span> — one farm has spare team, the other does not.</li>
+</ul>
+
+<div class="paso"><span class="n">6</span><strong>Compare options (Section 7 · HR)</strong><br>
+For each farm with an hours gap, three scenarios are shown side by side:</div>
+<table>
+  <thead><tr><th>Option</th><th>What it implies</th><th>Hidden cost</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A · Overtime</strong></td><td>Current team only, up to the legal cap</td><td>Fatigue (−5% yield)</td></tr>
+    <tr><td><strong>B · Hire</strong></td><td>N new workers (staffing agency)</td><td>Learning curve + stress (priced in hours, COP and kg)</td></tr>
+    <tr><td><strong>C · Mixed</strong></td><td>Overtime to the cap + hire the remainder</td><td>Proportional to the hired fraction</td></tr>
+  </tbody>
+</table>
+<p><strong>break_even:</strong> the week from which hiring accumulates <em>less cost</em> than continuing
+with overtime. Transient gap → A wins; structural gap → B wins.</p>
+
+<div class="paso"><span class="n">7</span><strong>Save and export</strong><br>
+<strong>Save to plan ledger</strong> = the plan is registered with metadata (target week, parameters).
+The following week, the backtest compares it against actuals.<br>
+<strong>Export CSV</strong> = versions for HR (per farm) and Production (per combination).</div>
+
+<h2>3 · How to read each traffic light</h2>
+<h3>Tab 06 · Budget compliance</h3>
+<table>
+  <thead><tr><th>Light</th><th>Threshold</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td><span class="sem sem-v">🟢</span></td><td>≥ 95%</td><td>On track. No action needed.</td></tr>
+    <tr><td><span class="sem sem-a">🟡</span></td><td>85–94%</td><td>Attention. Review at the next meeting.</td></tr>
+    <tr><td><span class="sem sem-r">🔴</span></td><td>&lt; 85%</td><td>Critical deviation. Recovery plan.</td></tr>
+  </tbody>
+</table>
+<h3>Tab 05 · Suggestions</h3>
+<ul>
+  <li><span class="sem sem-r">🟥 HIRE</span>: current team, even with capped overtime, is not enough.</li>
+  <li><span class="sem sem-a">🟧 OVERTIME</span>: needed, but within the legal cap (Art. 167 CST).</li>
+  <li><span class="sem sem-a">🟨 REDISTRIBUTE</span>: spare capacity exists at another farm; use it before hiring.</li>
+</ul>
+<h3>Tab 05 · Variation</h3>
+<ul>
+  <li><span class="sem sem-v">🟢 +</span>: you project more than last harvest.</li>
+  <li><span class="sem sem-r">🔴 −</span>: you project less.</li>
+</ul>
+
+<h2>4 · How to read the HR comparator (Section 7)</h2>
+<div class="card">
+Each row is one option. Key columns:
+<ul>
+  <li><strong>kg/week:</strong> real capacity the option adds in the first week.</li>
+  <li><strong>weekly cost:</strong> money the option costs.</li>
+  <li><strong>cost/kg:</strong> efficiency = $ per kg added.</li>
+  <li><strong>stress_h:</strong> hours lost due to newcomers (learning + crowding).</li>
+  <li><strong>stress_cop / stress_kg:</strong> the same stress translated to money and kilograms.</li>
+  <li><strong>break_even:</strong> week from which hiring accumulates less cost than overtime.</li>
+</ul>
+</div>
+<div class="alert alert-ok"><strong>✅ Recommendation:</strong>
+if the gap persists beyond 6 weeks and break_even is below the horizon (8 weeks), hire.</div>
+<div class="alert alert-warn"><strong>⚠️ Caution:</strong>
+if you hire, place newcomers in <strong>tolerant</strong> varieties (β=0) first, to minimize stress on sensitive ones.</div>
+
+<h2>5 · How to read the backtest (Section 6)</h2>
+<p>It compares the <strong>backtest-selected method</strong> (automatic forecast) against the
+<strong>field projection</strong> (✏️ kg PROJECTED), using the ERP actuals as ground truth.</p>
+<ul>
+  <li><strong>WMAPE:</strong> volume-weighted percentage error. <em>Lower is better.</em></li>
+  <li><strong>Overall winner:</strong> method with the lowest aggregated WMAPE.</li>
+  <li><strong>Group by:</strong> variety / block / farm / combination. Reveals where each method wins.</li>
+  <li><strong>Operational classification:</strong> Hit / Over-projection / Not planned but harvested / Correctly not planned.</li>
+  <li><strong>Recalibration factor:</strong> actual ÷ forecast. A factor of 0.80 means the method overestimates by 25%.</li>
+</ul>
+<div class="card"><strong>Simple rule:</strong> if the winning method for your variety stays consistent
+for 3+ weeks, trust its forecast. If your field projection is more accurate in certain blocks,
+that insight feeds agronomy.</div>
+
+<h2>6 · Tab 06 for management</h2>
+<div class="banner">
+  <div class="big">🗓️ Observation week · S19-2025</div>
+  Mon May 05 → Sun May 11
+</div>
+<p>The green/gold banner at the top of Tab 06 states clearly which week is being viewed.
+If you navigate to the past with the selector, a blue notice flags a <em>historical week</em>.</p>
+<div class="kpi"><b>Annual cum.</b><br>XX,XXX / 100,000 kg</div>
+<div class="kpi"><b>Monthly cum.</b><br>XX,XXX / 8,333 kg</div>
+<div class="kpi"><b>Weekly</b><br>X,XXX / 2,000 kg</div>
+<p style="margin-top:20px;"><strong>Cost per kilogram:</strong> the orange line on the right-hand chart.
+A sustained upward trend = review team efficiency or newcomer/senior composition.</p>
+
+<h2>7 · FAQ and pocket glossary</h2>
+<h3>Frequently asked questions</h3>
+<p><strong>Why do my field projection and the automatic forecast differ?</strong><br>
+The forecast uses the last 6 harvests (or holt/theta/seasonal if it won the backtest). Your field
+criteria include factors the model cannot see (ripeness, pending fruit, local conditions).
+The <em>Model dev.</em> column measures that gap.</p>
+<p><strong>What does "not planned but harvested" mean?</strong><br>
+Backlog fruit (látigo) that was not in the week's route but ended up harvested. If it appears
+repeatedly for a block, review that combination's harvest frequency.</p>
+<p><strong>Why can't I edit the newcomer share?</strong><br>
+It is an <strong>output</strong> of the current state, not an input. It is computed from the hours
+worked by new harvesters during the reference week.</p>
+<p><strong>What happens if I disable a block?</strong><br>
+It stops appearing in the planner from the chosen week onward, but its history is preserved.
+You can re-enable it at any time.</p>
+<h3>Pocket glossary</h3>
+<table>
+  <tbody>
+    <tr><td><strong>Combination</strong></td><td>Block × growing system × variety. The minimum planning unit.</td></tr>
+    <tr><td><strong>Backlog (látigo)</strong></td><td>Ripe fruit left unharvested beyond its window.</td></tr>
+    <tr><td><strong>Crowding (β)</strong></td><td>Effect of newcomers on seniors; variety-sensitive.</td></tr>
+    <tr><td><strong>Break-even</strong></td><td>Week from which hiring costs less than overtime.</td></tr>
+    <tr><td><strong>WMAPE</strong></td><td>Volume-weighted percentage error.</td></tr>
+    <tr><td><strong>FTE</strong></td><td>Full-time equivalent = hours ÷ ordinary weekly hours.</td></tr>
+  </tbody>
+</table>
+
+<footer>
+  Committee Guide · Harvest Operations · Public anonymized version<br>
+  Client identity and commercial references omitted for confidentiality.<br>
+  Prepared by Andrés Gómez · Agri-industrial Data Analyst.
+</footer>
+
+</body>
+</html>

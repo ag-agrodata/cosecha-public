@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Guía del Comité · Cosecha Operativo</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #1B4332;
+    --dorado: #D8B25C;
+    --terracota: #BC6C25;
+    --hueso: #FAFAF8;
+    --azul: #2C5F7C;
+    --tinta: #212529;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--tinta);
+    background: var(--hueso);
+    max-width: 920px;
+    margin: 40px auto;
+    padding: 0 32px;
+    line-height: 1.65;
+  }
+  h1, h2, h3 { font-family: 'Sora', sans-serif; color: var(--verde); }
+  h1 {
+    border-bottom: 3px solid var(--dorado);
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+  }
+  h2 {
+    margin-top: 48px;
+    border-left: 5px solid var(--dorado);
+    padding-left: 16px;
+  }
+  h3 { color: var(--azul); }
+  .subtitle {
+    color: #555;
+    font-style: italic;
+    margin-bottom: 32px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid rgba(27,67,50,.12);
+    border-left: 4px solid var(--dorado);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,.03);
+  }
+  .paso {
+    background: #fff;
+    border-left: 5px solid var(--verde);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 6px;
+  }
+  .paso .n {
+    display: inline-block;
+    background: var(--verde);
+    color: #fff;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 700;
+    margin-right: 12px;
+    font-family: 'Sora', sans-serif;
+  }
+  .sem {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: .9em;
+    margin-right: 4px;
+  }
+  .sem-v { background: #D1FAE5; color: #065F46; }
+  .sem-a { background: #FEF3C7; color: #92400E; }
+  .sem-r { background: #FEE2E2; color: #991B1B; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: .95em;
+  }
+  th {
+    background: var(--verde);
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #e5e5e5; }
+  tr:nth-child(even) td { background: #fafafa; }
+  .alert {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid;
+  }
+  .alert-ok { background: #ECFDF5; border-color: #10B981; }
+  .alert-warn { background: #FFFBEB; border-color: #F59E0B; }
+  .alert-crit { background: #FEF2F2; border-color: #DC2626; }
+  .kpi {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid rgba(27,67,50,.15);
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin: 4px;
+    min-width: 200px;
+  }
+  .kpi b { color: var(--verde); font-family: 'Sora', sans-serif; }
+  code {
+    background: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: .9em;
+    color: var(--azul);
+  }
+  .banner {
+    background: var(--verde);
+    color: #fff;
+    border-left: 6px solid var(--dorado);
+    padding: 18px 24px;
+    border-radius: 10px;
+    margin: 24px 0;
+    font-family: 'Sora', sans-serif;
+  }
+  .banner .big { font-size: 1.3em; font-weight: 800; }
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 2px solid var(--dorado);
+    color: #777;
+    font-size: .85em;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div style="background:#1B4332;color:#FAFAF8;border-left:6px solid #D8B25C;padding:10px 18px;border-radius:8px;margin-bottom:16px;font-size:.9rem;">Versión pública anonimizada · sin identificadores de cliente · Elaborado por Andrés Gómez · Analista de Datos Agroindustriales.</div>
+
+
+<h1>Guía del Comité · Cosecha Operativo</h1>
+<p class="subtitle">Compañía de la reunión de jueves 9 am · Elaborado por Andrés Gómez · Analista de Datos Agroindustriales</p>
+
+<div class="banner">
+  <div class="big">🎯 Propósito del tablero</div>
+  Acompañar la <strong>reunión semanal de planificación</strong> con un planificador prescriptivo:
+  cuántos kilogramos cosechar, cuánta gente hace falta, y cómo cerrarlo (horas extra, contratación o redistribución).
+</div>
+
+<h2>1 · Panorama en 5 segundos</h2>
+
+<div class="card">
+<strong>Qué es:</strong> un tablero operativo que traduce la proyección de producción en horas de trabajo,
+faltantes de personal y costo; y mide la exactitud de los pronósticos semana tras semana.<br><br>
+
+<strong>Qué NO es:</strong><br>
+• Un sistema de control de trabajadores (los datos son agregados y anonimizados).<br>
+• Un sustituto del criterio del supervisor de campo.<br>
+• Un dashboard comercial ni de ventas (proyecto separado).
+</div>
+
+<h2>2 · La reunión del jueves 9 am, paso a paso</h2>
+
+<div class="paso">
+  <span class="n">1</span><strong>Cargar el CSV del ERP</strong><br>
+  Sube el archivo con la cosecha de la semana que termina (hasta miércoles). Es el <em>estado actual</em>.
+</div>
+
+<div class="paso">
+  <span class="n">2</span><strong>Elegir el modo</strong><br>
+  <strong>Semana actual</strong> = planificar esta semana (raro).<br>
+  <strong>Semana a proyectar</strong> = la semana siguiente (el caso normal).
+</div>
+
+<div class="paso">
+  <span class="n">3</span><strong>Revisar el pronóstico pre-cargado</strong><br>
+  La columna <code>✏️ kg PROYECTADOS</code> arranca con la proyección del método ganador por variedad
+  (seleccionado automáticamente por backtest). Puedes ver la <em>histórico de 4 semanas</em> para detectar valores atípicos.
+</div>
+
+<div class="paso">
+  <span class="n">4</span><strong>Ajustar los kilogramos</strong><br>
+  Edita <code>✏️ kg PROYECTADOS</code> con tu criterio de campo. La columna <strong>Variación</strong>
+  se pinta <span class="sem sem-v">🟢 +</span> si subes, <span class="sem sem-r">🔴 −</span> si bajas.
+  La columna <strong>Desv. modelo</strong> muestra cuánto te desvías del pronóstico automático.
+</div>
+
+<div class="paso">
+  <span class="n">5</span><strong>Leer las sugerencias (Sección 4)</strong><br>
+  El motor calcula horas necesarias por predio y compara con horas disponibles. Devuelve:
+</div>
+
+<ul>
+  <li><span class="sem sem-r">🟥 CONTRATAR</span> — faltan personas, aun con horas extra al tope.</li>
+  <li><span class="sem sem-a">🟧 HORAS EXTRA</span> — se necesitan horas dentro del tope legal.</li>
+  <li><span class="sem sem-a">🟨 REDISTRIBUIR</span> — un predio tiene equipo disponible, el otro no.</li>
+</ul>
+
+<div class="paso">
+  <span class="n">6</span><strong>Comparar opciones (Sección 7 · RRHH)</strong><br>
+  Para cada predio con gap de horas, se presentan tres escenarios lado a lado:
+</div>
+
+<table>
+  <thead><tr><th>Opción</th><th>Qué implica</th><th>Costo oculto</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A · Horas extra</strong></td><td>Solo equipo actual, hasta tope legal</td><td>Fatiga (−5% rendimiento)</td></tr>
+    <tr><td><strong>B · Contratar</strong></td><td>N personas nuevas (tercerizadas)</td><td>Curva de aprendizaje + estrés (tasado en horas, COP y kg)</td></tr>
+    <tr><td><strong>C · Mixto</strong></td><td>Horas extra al tope + contratar el residuo</td><td>Proporcional a la fracción contratada</td></tr>
+  </tbody>
+</table>
+
+<p><strong>break_even:</strong> la semana a partir de la cual contratar acumula <em>menos costo</em>
+que seguir con horas extra. Si el gap es transitorio, gana A; si es estructural, gana B.</p>
+
+<div class="paso">
+  <span class="n">7</span><strong>Guardar y exportar</strong><br>
+  <strong>Guardar en libro de planes</strong> = el plan queda registrado con metadata (semana objetivo, parámetros).
+  La semana siguiente, el backtest lo compara contra los reales.<br>
+  <strong>Exportar CSV</strong> = versión para RRHH (por predio) y para Producción (por combinación).
+</div>
+
+<h2>3 · Cómo leer cada semáforo</h2>
+
+<h3>Pestaña 06 · Cumplimiento de presupuesto</h3>
+<table>
+  <thead><tr><th>Semáforo</th><th>Umbral</th><th>Significado</th></tr></thead>
+  <tbody>
+    <tr><td><span class="sem sem-v">🟢</span></td><td>≥ 95%</td><td>En ruta. No requiere acción.</td></tr>
+    <tr><td><span class="sem sem-a">🟡</span></td><td>85–94%</td><td>Atención. Revisar en la siguiente reunión.</td></tr>
+    <tr><td><span class="sem sem-r">🔴</span></td><td>&lt; 85%</td><td>Desviación crítica. Plan de choque.</td></tr>
+  </tbody>
+</table>
+
+<h3>Pestaña 05 · Sugerencias</h3>
+<ul>
+  <li><span class="sem sem-r">🟥 CONTRATAR</span>: el equipo actual, con horas extra al tope, no alcanza.</li>
+  <li><span class="sem sem-a">🟧 HORAS EXTRA</span>: se necesitan, pero caben en el tope legal (Art. 167 CST).</li>
+  <li><span class="sem sem-a">🟨 REDISTRIBUIR</span>: hay capacidad disponible en otro predio; aprovechar antes de contratar.</li>
+</ul>
+
+<h3>Pestaña 05 · Variación</h3>
+<ul>
+  <li><span class="sem sem-v">🟢 +</span>: proyectas más de lo que cosechaste la última vez.</li>
+  <li><span class="sem sem-r">🔴 −</span>: proyectas menos.</li>
+</ul>
+
+<h2>4 · Cómo leer el comparador RRHH (Sección 7)</h2>
+
+<div class="card">
+Cada fila es una opción. Columnas clave:
+<ul>
+  <li><strong>kg_semana:</strong> capacidad real que aporta esa opción en la primera semana.</li>
+  <li><strong>costo_semana:</strong> dinero que cuesta esa opción.</li>
+  <li><strong>costo_kg:</strong> eficiencia = $/kg aportado.</li>
+  <li><strong>estres_h:</strong> horas perdidas por novatos (aprendizaje + crowding).</li>
+  <li><strong>estres_cop / estres_kg:</strong> el mismo estrés traducido a dinero y a kilogramos.</li>
+  <li><strong>break_even:</strong> semana a partir de la cual contratar acumula menos costo que horas extra.</li>
+</ul>
+</div>
+
+<div class="alert alert-ok"><strong>✅ Recomendación:</strong>
+Si el gap persiste más de 6 semanas y el break_even es menor al horizonte (8 sem), contratar.</div>
+
+<div class="alert alert-warn"><strong>⚠️ Precaución:</strong>
+Si contratas, ubica los novatos en variedades <strong>tolerantes</strong> (β=0) para minimizar el estrés en sensibles.</div>
+
+<h2>5 · Cómo leer el backtest (Sección 6)</h2>
+
+<p>Compara el <strong>método elegido por backtest</strong> (pronóstico automático) contra la
+<strong>proyección de campo</strong> (✏️ kg PROYECTADOS), usando como verdad los kg reales del ERP.</p>
+
+<ul>
+  <li><strong>WMAPE:</strong> error porcentual ponderado. <em>Más bajo = mejor.</em></li>
+  <li><strong>Ganador global:</strong> el método con menor WMAPE agregado.</li>
+  <li><strong>Agrupar por:</strong> variedad / bloque / predio / combinación. Descubre dónde cada método gana.</li>
+  <li><strong>Clasificación operativa:</strong> Acierto / Sobre-proyección / No programado pero cosechado / Correctamente no programado.</li>
+  <li><strong>Factor de recalibración:</strong> real ÷ pronosticado. Un factor de 0.80 significa que el método sobreestima 25%.</li>
+</ul>
+
+<div class="card">
+<strong>Regla simple:</strong> si el método ganador en tu variedad es consistente durante 3+ semanas,
+confía en su pronóstico. Si tu proyección de campo es más precisa en ciertos bloques, eso alimenta agronomía.
+</div>
+
+<h2>6 · Pestaña 06 para gerencia</h2>
+
+<div class="banner">
+  <div class="big">🗓️ Semana de observación · S19-2025</div>
+  lun 05 may → dom 11 may
+</div>
+
+<p>El banner verde/dorado arriba de la pestaña 06 indica claramente qué semana se está viendo.
+Si navegas al pasado con el selector, aparece un aviso azul de <em>semana histórica</em>.</p>
+
+<div class="kpi"><b>Anual acum.</b><br>XX,XXX / 100,000 kg</div>
+<div class="kpi"><b>Mensual acum.</b><br>XX,XXX / 8,333 kg</div>
+<div class="kpi"><b>Semanal</b><br>X,XXX / 2,000 kg</div>
+
+<p style="margin-top: 20px;"><strong>Costo por kilogramo:</strong> la línea naranja del gráfico de la derecha.
+Tendencia al alza sostenida = revisar eficiencia de equipo o composición novatos/senior.</p>
+
+<h2>7 · FAQ y glosario de bolsillo</h2>
+
+<h3>Preguntas frecuentes</h3>
+
+<p><strong>¿Por qué mi proyección de campo y el pronóstico automático difieren?</strong><br>
+El pronóstico usa las últimas 6 cosechas (o holt/theta/seasonal si ganó por backtest). Tu criterio de campo
+incluye factores que el modelo no ve (madurez, fruta pendiente, clima local). La columna <em>Desv. modelo</em> mide esa brecha.</p>
+
+<p><strong>¿Qué significa "no programado pero cosechado"?</strong><br>
+Fruta rezagada (látigo) que no se incluyó en la ruta de la semana pero se terminó cosechando.
+Si aparece muchas veces en un bloque, revisar la frecuencia de cosecha de esa combinación.</p>
+
+<p><strong>¿Por qué el share de nuevos no se puede editar?</strong><br>
+Es un <strong>resultado</strong> del estado actual, no un input. Se calcula a partir de las horas trabajadas
+por cosechadores nuevos en la semana de referencia.</p>
+
+<p><strong>¿Qué pasa si deshabilito un bloque?</strong><br>
+Deja de aparecer en el planificador desde la semana elegida en adelante, pero su histórico se conserva.
+Puedes re-habilitarlo cuando quieras.</p>
+
+<h3>Glosario rápido</h3>
+<table>
+  <tbody>
+    <tr><td><strong>Combinación</strong></td><td>Bloque × sistema × variedad. Unidad mínima de planificación.</td></tr>
+    <tr><td><strong>Látigo</strong></td><td>Fruta rezagada no cosechada a tiempo.</td></tr>
+    <tr><td><strong>Crowding (β)</strong></td><td>Efecto de los novatos sobre los senior, sensible a la variedad.</td></tr>
+    <tr><td><strong>Break-even</strong></td><td>Semana desde la cual contratar cuesta menos que horas extra.</td></tr>
+    <tr><td><strong>WMAPE</strong></td><td>Error porcentual ponderado por volumen real.</td></tr>
+    <tr><td><strong>FTE</strong></td><td>Full-time equivalent = horas ÷ jornada ordinaria.</td></tr>
+  </tbody>
+</table>
+
+<footer>
+  Guía del Comité · Cosecha Operativo<br>
+  Separado estrictamente de cualquier proyecto comercial bajo NDA.<br>
+  Elaborado por Andrés Gómez · Analista de Datos Agroindustriales.
+</footer>
+
+</body>
+</html>

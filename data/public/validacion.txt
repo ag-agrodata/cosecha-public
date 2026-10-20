@@ -1,0 +1,38 @@
+================================================================================
+VALIDACIÓN DE ANONIMIZACIÓN · DATASET PÚBLICO
+================================================================================
+
+── 1 · ATAQUE DE SINGULARIZACIÓN (n_trab < k_min) ──
+Tabla 1 · celdas con n_trab < 5: 0
+Tabla 2 · celdas con n_trab < 5: 0
+Curva   · bins con n_trab < 5: 0
+Crowding· celdas con n_trab < 5: 0
+✅ PASA: ninguna celda publicada tiene < k trabajadores únicos.
+
+── 2 · ATAQUE DE MEMBRESÍA (trabajador en < k celdas) ──
+Tabla 1 · trabajadores en < 5 celdas: 31 de 451
+Tabla 2 · trabajadores en < 5 celdas: 32 de 452
+Crowding· trabajadores en < 5 celdas: 26 de 415
+⚠️ ATENCIÓN: algunos trabajadores aparecen en < k celdas. Riesgo moderado.
+   (Esto es aceptable si las celdas son grandes; revisar manualmente si preocupa.)
+
+── 3 · ATAQUE DE ATRIBUTO (único senior/nuevo en celda) ──
+Crowding · celdas con 1 solo experimentado: 0
+Crowding · celdas con 1 solo nuevo: 0
+✅ PASA: ninguna celda tiene un solo trabajador con atributo específico.
+
+── 4 · VERIFICACIÓN DE AUSENCIA DE IDENTIFICADORES ──
+✅ PASA: no hay identificadores directos en el dataset público.
+
+── 5 · VERIFICACIÓN DE CELDAS ≥ 10 REGISTROS ──
+Tabla 1 · celdas con < 10 registros: 0
+Tabla 2 · celdas con < 10 registros: 0
+Curva   · bins con < 10 registros: 0
+Crowding· celdas con < 10 registros: 0
+✅ PASA: todas las celdas publicadas tienen ≥ 10 registros.
+
+================================================================================
+RESUMEN DE VALIDACIÓN
+================================================================================
+⚠️ DATASET PÚBLICO CON RIESGOS MODERADOS
+   Revisar las fallas arriba y ajustar build_public.py si es necesario.
