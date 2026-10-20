@@ -153,8 +153,7 @@ MIT — ver [`LICENSE`](LICENSE).
 
 **Andrés Gómez**<br/>
 Analista de Datos Agroindustriales<br/>
-`andresgomez@agrodata.dev`
 
-[🌐 Portafolio](https://github.com/ag-agrodata) · [📧 Contacto](mailto:andresgomez@agrodata.dev)
+[🌐 Portafolio](https://github.com/ag-agrodata) · [📧 Contacto](mailto:afgomez.agroindustrial@gmail.com)
 
 </div>
