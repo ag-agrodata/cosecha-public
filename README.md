@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="src/berrix/assets/ag6.svg" alt="AG Agrodata" width="180"/>
+<img src="src/berrix/assets/ag6.svg" alt="AG · Andrés Gómez" width="180"/>
 
 # 🫐 Blueberry Harvest Productivity — Public Release
 
