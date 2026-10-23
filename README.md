@@ -159,7 +159,7 @@ This project uses a **dual license**:
 <div align="center">
 
 **Andrés Gómez**<br/>
-Agri-industrial Data Analyst<br/>
+Agribusiness Data Analyst<br/>
 
 [🌐 Portfolio](https://github.com/ag-agrodata) · [📧 Contact](mailto:afgomez.agroindustrial@gmail.com)
 
