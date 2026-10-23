@@ -20,13 +20,38 @@ Python · Polars · Streamlit · Plotly · k-anonymized public dataset.
 
 ---
 
-## Overview
+## 2-Minute Summary
 
-This repository contains the **public anonymized release** of an operational dashboard built for a greenhouse blueberry grower. It turns the production forecast into work hours, headcount shortfalls and cost, and measures forecast accuracy week after week.
+A prescriptive weekly planner that translates blueberry harvest forecasts into work hours, headcount gaps, and operational costs. It turns historical productivity data into actionable forecasts and measures accuracy week over week. Built on real anonymized data (k ≥ 5 workers, ≥ 10 records per cell), with a public demo and documented statistical methodology.
 
-The companion internal version (not published) drives the **Thursday 9:00 am planning meeting** of the Production, Harvest and HR teams.
+> **Legal notice:** Published aggregates meet strict k-anonymity standards. They do not allow the identification of individual workers, specific blocks, or the client's identity. See the [Statistical Decisions](docs/public/en/decisiones-estadisticas-cosecha-public.md) for the full spec.
 
-> **Anonymization:** every published aggregate satisfies k ≥ 5 unique workers and ≥ 10 records per cell. Client identity, worker IDs, block-level data and exact dates are omitted for confidentiality. See the [Statistical Decisions](docs/public/en/decisiones-estadisticas-cosecha-public.md) for the full spec.
+## The Problem
+
+Production and HR teams in agribusiness often plan harvests using static averages, underestimating the effects of the learning curve, accumulated fatigue, and seasonality. When planning is reactive, it leads to unplanned overtime costs, operational stress, and productivity losses.
+
+The question this project answers: How do we turn historical operational data into a prescriptive, fair, and efficient harvest plan?
+
+## What this project demonstrates
+
+- **Modeling operational reality:** Translating agronomic concepts (learning curve, crowding effect) into executable mathematical formulas in Python and Polars.
+- **Explainable forecasting over "black boxes":** Implementing a "forecast zoo" (moving average, seasonal, Holt, Theta) that compete on WMAPE, prioritizing interpretability over ML complexity.
+- **Decision-making under uncertainty:** Calculating 80% confidence intervals and break-even scenarios (overtime vs. hiring) to back HR decisions with data, not intuition.
+- **Rigorous governance and anonymization:** Applying k-anonymity, suppression, and top-coding to publish sensitive operational data without compromising worker privacy.
+- **End-to-end data lifecycle:** From ERP record extraction to an interactive Streamlit dashboard with an ES/EN toggle and lineage documentation.
+
+## Recommendations and Impact
+
+> **Transparency note:** Impact figures (costs, kg, hours) are presented as estimated ranges under NDA. Exact figures are confidential and must be validated internally before use in presentations.
+
+### 1 · Optimize workforce mix (Mixed vs. Overtime)
+The HR comparator identifies the break-even point where hiring new staff accumulates less cost than paying fatigued overtime. The recommendation is to use this threshold to approve temporary hiring requests before the hour gap becomes unsustainable.
+
+### 2 · Early intervention in newcomer cohorts
+The "Learning curve" view identifies when a cohort stagnates. The operational recommendation is to assign mentors or adjust workloads within the first 4 weeks, before productivity drops below 70% of the senior target.
+
+### 3 · Dynamic goal adjustment by seasonality
+The seasonality view reveals peaks of operational stress. The recommendation is to adjust expected kg/hour targets during critical floral or climatic windows, avoiding penalizing the team for unmodeled external factors.
 
 ## Live Demo
 
@@ -97,6 +122,7 @@ cosecha-public/
 ├── .streamlit/config.toml
 └── requirements.txt
 ```
+> 👨🏻‍💻 **Technical note:** `berrix` is the internal package name (a contraction of berries + *analytics) that houses the analytical engine and forecasting modules for this project suite. It is kept as a namespace to maintain architectural coherence with the companion repository (berries-dashboard).
 
 ## Run Locally
 
@@ -131,6 +157,10 @@ Validation report: [`data/public/validacion.txt`](data/public/validacion.txt).
 
 The internal pipelines (`build_public.py`, `validar_public.py`) are **not** part of this release, as they require access to the granular (non-public) data.
 
+## Companion project: End-to-End Agribusiness Analytics
+
+This repository is part of a broader ecosystem. It pairs with [berries-dashboard](https://github.com/ag-agrodata/berries-dashboard) to cover the full business cycle: while this tool solves operational bottlenecks (yield, labor, and cost), `berries-dashboard` translates B2B sales data into strategic actions for the commercial committee.
+
 ## Tech Stack
 
 - **Language:** Python 3.12 / 3.13
@@ -160,6 +190,7 @@ This project uses a **dual license**:
 
 **Andrés Gómez**<br/>
 Agribusiness Data Analyst<br/>
+"I turn the complexity of the field into data-driven decisions."
 
 [🌐 Portfolio](https://github.com/ag-agrodata) · [📧 Contact](mailto:afgomez.agroindustrial@gmail.com)
 

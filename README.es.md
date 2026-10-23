@@ -20,13 +20,38 @@ Python · Polars · Streamlit · Plotly · dataset público k-anonimizado.
 
 ---
 
-## Descripción
+## Resumen en 2 minutos
 
-Este repositorio contiene la **versión pública anonimizada** de un tablero operativo construido para un productor de arándanos en invernadero. Traduce la proyección de producción en horas de trabajo, faltantes de personal y costo, y mide la exactitud de los pronósticos semana tras semana.
+Un planificador semanal prescriptivo que traduce la proyección de cosecha de arándanos en horas de trabajo, brechas de personal y costos operativos. Convierte datos históricos de productividad en pronósticos accionables y mide la exactitud semana tras semana. Construido sobre datos reales anonimizados (k ≥ 5 trabajadores, ≥ 10 registros por celda), con demo pública y metodología estadística documentada.
 
-La versión interna (no publicada) acompaña la **reunión de planificación del jueves 9:00 am** de los equipos de Producción, Cosecha y RRHH.
+> **Aviso legal:** Los agregados publicados cumplen estándares estrictos de k-anonimato. No permiten identificar trabajadores individuales, bloques específicos ni revelar la identidad del cliente. Consulta las [Decisiones Estadísticas](docs/public/decisiones-estadisticas-cosecha-public.md) para la especificación completa.
 
-> **Anonimización:** todo agregado publicado cumple k ≥ 5 trabajadores únicos y ≥ 10 registros por celda. La identidad del cliente, los IDs de trabajadores, los datos por bloque y las fechas exactas se omiten por confidencialidad. Consulta las [Decisiones Estadísticas](docs/public/decisiones-estadisticas-cosecha-public.md) para la especificación completa.
+## El problema
+
+Los equipos de producción y RRHH en agroindustria suelen planificar la cosecha con promedios estáticos, subestimando el efecto de la curva de aprendizaje, la fatiga acumulada y la estacionalidad. Cuando la planificación es reactiva, se generan costos por horas extra no planificadas, estrés operativo y mermas en la productividad. 
+
+La pregunta que este proyecto responde: ¿cómo transformar datos operativos históricos en un plan de cosecha prescriptivo, justo y eficiente?
+
+## Qué demuestra este proyecto
+
+- **Modelar la realidad operativa:** Traducir conceptos agronómicos (curva de aprendizaje, efecto crowding) en fórmulas matemáticas ejecutables en Python y Polars.
+- **Pronósticos explicables sobre "cajas negras":** Implementar un "zoológico de pronósticos" (media móvil, estacional, Holt, Theta) que compiten por WMAPE, priorizando la interpretabilidad sobre la complejidad del machine learning.
+- **Toma de decisiones con incertidumbre:** Calcular intervalos de confianza al 80% y escenarios de break-even (horas extra vs. contratación) para respaldar decisiones de RRHH con datos, no con intuición.
+- **Gobernanza y anonimización rigurosa:** Aplicar k-anonimato, supresión y top-coding para publicar datos operativos sensibles sin comprometer la privacidad de los trabajadores.
+- **Ciclo de vida completo del dato:** Desde la extracción de registros ERP hasta un tablero interactivo en Streamlit con toggle bilingüe (ES/EN) y documentación de linaje.
+
+## Recomendaciones e impacto
+
+> **Nota de transparencia:** Las cifras de impacto (costos, kg, horas) se presentan como rangos estimados bajo NDA. Las cifras exactas están bajo confidencialidad y deben validarse internamente antes de su uso en presentaciones.
+
+### 1 · Optimizar la mezcla de personal (Mixto vs. Horas Extra)
+El comparador de RRHH identifica el punto de break-even donde contratar personal nuevo acumula menos costo que pagar horas extra con fatiga. La recomendación es usar este umbral para aprobar solicitudes de contratación temporal antes de que la brecha de horas se vuelva insostenible.
+
+### 2 · Intervención temprana en cohortes de novatos
+La vista de "Curva de aprendizaje" permite identificar cuándo una cohorte se estanca. La recomendación operativa es asignar mentores o ajustar la carga de trabajo en las primeras 4 semanas, antes de que la productividad caiga por debajo del 70% del objetivo senior.
+
+### 3 · Ajuste dinámico de metas por estacionalidad
+La vista de estacionalidad revela picos de estrés operativo. La recomendación es ajustar las metas de kg/hora esperadas durante ventanas florales o climáticas críticas, evitando penalizar al equipo por factores externos no modelados.
 
 ## Demo en vivo
 
@@ -97,6 +122,7 @@ cosecha-public/
 ├── .streamlit/config.toml
 └── requirements.txt
 ```
+> 👨🏻‍💻 **Nota técnica:** `berrix es el nombre del paquete interno (contracción de berries + analytics) que alberga el motor analítico y los módulos de pronóstico de esta suite de proyectos. Se mantiene como namespace para preservar la coherencia arquitectónica con el repositorio acompañante (berries-dashboard).
 
 ## Ejecución local
 
@@ -131,6 +157,10 @@ Reporte de validación: [`data/public/validacion.txt`](data/public/validacion.tx
 
 Los pipelines internos (`build_public.py`, `validar_public.py`) **no** forman parte de esta versión pública, ya que requieren acceso al dataset granular (no público).
 
+## Proyecto Acompañante: Analítica Agroindustrial Integral
+
+Este repositorio es parte de un ecosistema mayor. Se complementa con [berries-dashboard](https://github.com/ag-agrodata/berries-dashboard) para cubrir el ciclo completo del negocio: mientras esta herramienta resuelve cuellos de botella operativos (rendimiento, personal y costos), `berries-dashboard` traduce los datos de ventas B2B en acciones estratégicas para el comité comercial.
+
 ## Stack tecnológico
 
 - **Lenguaje:** Python 3.12 / 3.13
@@ -160,6 +190,7 @@ Este proyecto usa una **licencia dual**:
 
 **Andrés Gómez**<br/>
 Analista de Datos Agroindustriales<br/>
+"Transformo la complejidad del campo en decisiones basadas en datos."
 
 [🌐 Portafolio](https://github.com/ag-agrodata) · [📧 Contacto](mailto:afgomez.agroindustrial@gmail.com)
 
