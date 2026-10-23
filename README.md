@@ -101,35 +101,63 @@ Break-even: week from which hiring accumulates less cost than overtime for the s
 
 ```
 cosecha-public/
-├── src/berrix/
-│   ├── app_cosecha_public.py     # Streamlit dashboard (ES/EN)
-│   ├── forecaster.py             # Forecast zoo + holdout backtest
-│   └── assets/ag6.svg            # Brand logo
-├── data/public/                  # k-anonymized dataset (6 parquet tables)
-│   ├── hechos_semana.parquet
-│   ├── hechos_mes_variedad.parquet
-│   ├── curva_public.parquet
-│   ├── crowding_public.parquet
-│   ├── params_public.parquet
-│   ├── estacionalidad_public.parquet
-│   ├── README.md
-│   └── validacion.txt
-├── docs/public/                  # ES methodology docs
-│   ├── cerebro-cosecha-public.md
-│   ├── decisiones-estadisticas-cosecha-public.md
-│   ├── guia-comite-cosecha-public.html
-│   └── en/                       # EN translations
+├── src/
+│       └── berrix/
+│           ├── app_cosecha_public.py     # Streamlit dashboard (ES/EN)
+│           ├── forecaster.py             # Forecast zoo + holdout backtest
+│           └── assets/
+│               └── ag6.svg               # Brand logo
+├── data/
+│       └── public/               # k-anonymized dataset (6 parquet tables)
+│           ├── hechos_semana.parquet
+│           ├── hechos_mes_variedad.parquet
+│           ├── curva_public.parquet
+│           ├── crowding_public.parquet
+│           ├── params_public.parquet
+│           ├── estacionalidad_public.parquet
+│           ├── README.md
+│           └── validacion.txt
+├── docs/
+│       └── public/               # ES methodology docs
+│           ├── cerebro-cosecha-public.md
+│           ├── decisiones-estadisticas-cosecha-public.md
+│           ├── guia-comite-cosecha-public.html
+│           └── en/               # EN translations
 ├── .streamlit/config.toml
-└── requirements.txt
+├── requirements.txt
+└── uv.lock
 ```
 > 👨🏻‍💻 **Technical note:** `berrix` is the internal package name (a contraction of berries + analytics) that houses the analytical engine and forecasting modules for this project suite. It is kept as a namespace to maintain architectural coherence with the companion repository (berries-dashboard).
 
 ## Run Locally
 
+### Option A · uv (recommended)
+
 ```bash
+# Clone the repo
 git clone https://github.com/ag-agrodata/cosecha-public.git
 cd cosecha-public
+
+# Sync and install dependencies
+uv sync
+
+# Run the simulator
+uv run streamlit run src/berrix/app_cosecha_public.py
+```
+
+### Option B · pip
+
+```bash
+# Clone the repo
+git clone https://github.com/ag-agrodata/cosecha-public.git
+cd cosecha-public
+
+# Create virtual environment and install dependencies
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+
+# Run the simulator
 streamlit run src/berrix/app_cosecha_public.py
 ```
 

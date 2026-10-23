@@ -101,35 +101,63 @@ Break-even: semana a partir de la cual contratar acumula menos costo que horas e
 
 ```
 cosecha-public/
-├── src/berrix/
-│   ├── app_cosecha_public.py     # Dashboard Streamlit (ES/EN)
-│   ├── forecaster.py             # Zoológico de pronósticos + backtest holdout
-│   └── assets/ag6.svg            # Logo de marca
-├── data/public/                  # Dataset k-anonimizado (6 tablas parquet)
-│   ├── hechos_semana.parquet
-│   ├── hechos_mes_variedad.parquet
-│   ├── curva_public.parquet
-│   ├── crowding_public.parquet
-│   ├── params_public.parquet
-│   ├── estacionalidad_public.parquet
-│   ├── README.md
-│   └── validacion.txt
-├── docs/public/                  # Documentación de metodología ES
-│   ├── cerebro-cosecha-public.md
-│   ├── decisiones-estadisticas-cosecha-public.md
-│   ├── guia-comite-cosecha-public.html
-│   └── en/                       # Traducciones EN
+├── src/
+│       └── berrix/
+│           ├── app_cosecha_public.py     # Dashboard Streamlit (ES/EN)
+│           ├── forecaster.py             # Zoológico de pronósticos + backtest holdout
+│           └── assets/
+│               └── ag6.svg               # Logo de marca
+├── data/
+│       └── public/                       # Dataset k-anonymized (6 parquet tables)
+│           ├── hechos_semana.parquet
+│           ├── hechos_mes_variedad.parquet
+│           ├── curva_public.parquet
+│           ├── crowding_public.parquet
+│           ├── params_public.parquet
+│           ├── estacionalidad_public.parquet
+│           ├── README.md
+│           └── validacion.txt
+├── docs/
+│       └── public/                       # Documentos de metodología Español
+│           ├── cerebro-cosecha-public.md
+│           ├── decisiones-estadisticas-cosecha-public.md
+│           ├── guia-comite-cosecha-public.html
+│           └── en/                       # Traducciones Inglés
 ├── .streamlit/config.toml
-└── requirements.txt
+├── requirements.txt
+└── uv.lock
 ```
 > 👨🏻‍💻 **Nota técnica:** `berrix es el nombre del paquete interno (contracción de berries + analytics) que alberga el motor analítico y los módulos de pronóstico de esta suite de proyectos. Se mantiene como namespace para preservar la coherencia arquitectónica con el repositorio acompañante (berries-dashboard).
 
 ## Ejecución local
 
+### Opción A · uv (recomendado)
+
 ```bash
+# Clonar el repositorio
 git clone https://github.com/ag-agrodata/cosecha-public.git
 cd cosecha-public
+
+# Sincronizar e instalar dependencias
+uv sync
+
+# Corre el simulador
+uv run streamlit run src/berrix/app_cosecha_public.py
+```
+
+### Opción B · pip
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/ag-agrodata/cosecha-public.git
+cd cosecha-public
+
+# Crear el entorno virtual e instalar dependencias
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+
+# Corre el simulador
 streamlit run src/berrix/app_cosecha_public.py
 ```
 

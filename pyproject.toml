@@ -1,0 +1,16 @@
+[project]
+name = "cosecha-public"
+version = "1.0.0"
+description = "Prescriptive weekly planner for greenhouse blueberry harvest - public k-anonymized release"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "streamlit>=1.65",
+    "polars>=1.0",
+    "pandas>=2.0",
+    "plotly>=5.20",
+    "numpy>=1.26",
+]
+
+[tool.uv]
+package = false
