@@ -122,7 +122,7 @@ cosecha-public/
 ├── .streamlit/config.toml
 └── requirements.txt
 ```
-> 👨🏻‍💻 **Technical note:** `berrix` is the internal package name (a contraction of berries + *analytics) that houses the analytical engine and forecasting modules for this project suite. It is kept as a namespace to maintain architectural coherence with the companion repository (berries-dashboard).
+> 👨🏻‍💻 **Technical note:** `berrix` is the internal package name (a contraction of berries + analytics) that houses the analytical engine and forecasting modules for this project suite. It is kept as a namespace to maintain architectural coherence with the companion repository (berries-dashboard).
 
 ## Run Locally
 
