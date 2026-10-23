@@ -2,16 +2,15 @@
 
 <div align="center">
 
-<img src="src/berrix/assets/ag6.svg" alt="AG Agrodata" width="180"/>
+<img src="src/berrix/assets/ag6.svg" alt="AG · Andrés Gómez/Agrodata" width="180"/>
 
-# 🫐 Productividad de Cosecha de Arándanos — Versión Pública
+# 🫐 Productividad de Cosecha de Arándanos · Berrix
+### Versión Pública
 
 **Planificador semanal prescriptivo para cosecha de arándanos en invernadero.**<br/>
 Python · Polars · Streamlit · Plotly · dataset público k-anonimizado.
 
-[![Streamlit](https://img.shields.io/badge/Demo%20en%20vivo-Streamlit-FF4B4B?logo=streamlit)](https://cosecha-public-bvexudmlprqdcpwzjzmpxb.streamlit.app/)
-[![Licencia](https://img.shields.io/badge/licencia-MIT-1B4332)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.12%20%7C%203.13-3776AB?logo=python)](requirements.txt)
+[![Python](https://img.shields.io/badge/Python-3.13-1B4332?style=flat-square&logo=python&logoColor=white)](https://www.python.org/) [![Streamlit](https://img.shields.io/badge/Streamlit-1.61-1B4332?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/) [![Polars](https://img.shields.io/badge/Polars-1.43-2C5F7C?style=flat-square)](https://pola.rs/) [![DuckDB](https://img.shields.io/badge/DuckDB-SQL-2C5F7C?style=flat-square&logo=duckdb&logoColor=white)](https://duckdb.org/) [![Plotly](https://img.shields.io/badge/Plotly-6.9-BC6C25?style=flat-square&logo=plotly&logoColor=white)](https://plotly.com/)
 
 *Elaborado por **Andrés Gómez** · Analista de Datos Agroindustriales*
 

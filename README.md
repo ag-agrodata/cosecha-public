@@ -2,18 +2,17 @@
 
 <div align="center">
 
-<img src="src/berrix/assets/ag6.svg" alt="AG · Andrés Gómez" width="180"/>
+<img src="src/berrix/assets/ag6.svg" alt="AG · Andrés Gómez/Agrodata" width="180"/>
 
-# 🫐 Blueberry Harvest Productivity — Public Release
+# 🫐 Blueberry Harvest Productivity · Berrix
+### Public Release
 
 **Prescriptive weekly planner for greenhouse blueberry harvest.**<br/>
 Python · Polars · Streamlit · Plotly · k-anonymized public dataset.
 
-[![Streamlit](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?logo=streamlit)](https://cosecha-public-bvexudmlprqdcpwzjzmpxb.streamlit.app/)
-[![License](https://img.shields.io/badge/license-MIT-1B4332)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.12%20%7C%203.13-3776AB?logo=python)](requirements.txt)
+[![Python](https://img.shields.io/badge/Python-3.13-1B4332?style=flat-square&logo=python&logoColor=white)](https://www.python.org/) [![Streamlit](https://img.shields.io/badge/Streamlit-1.61-1B4332?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/) [![Polars](https://img.shields.io/badge/Polars-1.43-2C5F7C?style=flat-square)](https://pola.rs/) [![DuckDB](https://img.shields.io/badge/DuckDB-SQL-2C5F7C?style=flat-square&logo=duckdb&logoColor=white)](https://duckdb.org/) [![Plotly](https://img.shields.io/badge/Plotly-6.9-BC6C25?style=flat-square&logo=plotly&logoColor=white)](https://plotly.com/)
 
-*Elaborated by **Andrés Gómez** · Agri-industrial Data Analyst*
+*Elaborated by **Andrés Gómez** · Agribusiness Data Analyst*
 
 [🚀 Live Demo](https://cosecha-public-bvexudmlprqdcpwzjzmpxb.streamlit.app/) · [📖 Docs](docs/public/en/) · [📊 Internal spec](docs/public/en/cerebro-cosecha-public.md)
 

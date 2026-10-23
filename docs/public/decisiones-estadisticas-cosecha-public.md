@@ -99,7 +99,7 @@ $$
 Factor < 1 → método sobreestima; > 1 → subestima. Útil para ajustar el siguiente pronóstico.
 
 ### 2.6 Regla ISO del jueves (Pestaña 06)
-Cada semana ISO se asigna al mes/año del **jueves** correspondiente. Evita problemas de semanas跨年 y asegura consistencia al navegar históricamente.
+Cada semana ISO se asigna al mes/año del **jueves** correspondiente. Evita problemas de semanas transanuales y asegura consistencia al navegar históricamente.
 
 ---
 
