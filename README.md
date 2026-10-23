@@ -108,7 +108,7 @@ cosecha-public/
 │           └── assets/
 │               └── ag6.svg               # Brand logo
 ├── data/
-│       └── public/               # k-anonymized dataset (6 parquet tables)
+│       └── public/                       # k-anonymized dataset (6 parquet tables)
 │           ├── hechos_semana.parquet
 │           ├── hechos_mes_variedad.parquet
 │           ├── curva_public.parquet
@@ -118,11 +118,11 @@ cosecha-public/
 │           ├── README.md
 │           └── validacion.txt
 ├── docs/
-│       └── public/               # ES methodology docs
+│       └── public/                       # ES methodology docs
 │           ├── cerebro-cosecha-public.md
 │           ├── decisiones-estadisticas-cosecha-public.md
 │           ├── guia-comite-cosecha-public.html
-│           └── en/               # EN translations
+│           └── en/                       # EN translations
 ├── .streamlit/config.toml
 ├── requirements.txt
 └── uv.lock
